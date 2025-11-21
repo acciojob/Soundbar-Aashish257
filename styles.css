@@ -1,1 +1,111 @@
 /*  your css code here. If applicable */
+/* styles.css - soundbar styling */
+:root{
+  --bg: #0f1724;
+  --card: #0b1220;
+  --accent: #06b6d4;
+  --muted: #94a3b8;
+  --danger: #ff6b6b;
+}
+
+*{box-sizing:border-box}
+html,body{
+  height:100%;
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: linear-gradient(180deg,#061022 0%, #082034 100%);
+  color:#e6eef6;
+}
+
+body{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:28px;
+}
+
+/* container created by JS */
+#buttons {
+  width:920px;
+  max-width:calc(100% - 40px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:12px;
+  padding:18px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* grid of buttons */
+#buttons .grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap:12px;
+}
+
+/* common sound button */
+.btn{
+  appearance:none;
+  -webkit-appearance:none;
+  border: none;
+  cursor:pointer;
+  padding:12px 14px;
+  border-radius:10px;
+  font-weight:700;
+  text-transform:capitalize;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  color: #e9fbff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  transition: transform .12s ease, box-shadow .12s ease, opacity .12s;
+  box-shadow: 0 6px 16px rgba(2,6,23,0.45);
+  user-select:none;
+}
+
+.btn:active { transform: translateY(1px) scale(.997); }
+
+.btn.playing{
+  outline: 2px solid rgba(6,182,212,0.12);
+  box-shadow: 0 10px 28px rgba(6,182,212,0.06);
+  transform: translateY(-2px);
+}
+
+/* stop button spans full width */
+.stop{
+  grid-column: 1 / -1;
+  padding:12px 14px;
+  font-weight:800;
+  border-radius:10px;
+  text-transform:capitalize;
+  background: linear-gradient(180deg, rgba(255,50,50,0.12), rgba(255,50,50,0.06));
+  color: #fff1f1;
+  border: 1px solid rgba(255,80,80,0.12);
+  cursor:pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+
+/* small label row on top */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
+  gap:12px;
+}
+.header h1{
+  margin:0;
+  font-size:18px;
+  letter-spacing:0.2px;
+}
+.header p{
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* small responsive tweaks */
+@media (max-width:560px){
+  #buttons .grid { grid-template-columns: repeat(2,1fr); }
+  #buttons { padding:12px; }
+}
